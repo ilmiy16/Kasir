@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.kasir">
+
+    <!-- Izin untuk mengakses internet (hapus jika tidak diperlukan) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/log"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/log"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Kasir"
+        tools:targetApi="31">
+
+        <!-- Konfigurasi Backup (Pastikan file ini ada di /res/xml) -->
+        <meta-data
+            android:name="android.content.pm.DataExtractionRules"
+            android:resource="@xml/data_extraction_rules"
+            tools:ignore="MissingResource" />
+
+        <meta-data
+            android:name="android.content.pm.FullBackupContent"
+            android:resource="@xml/backup_rules"
+            tools:ignore="MissingResource" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <!-- Activity Utama (MainActivity) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activity Login -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true">
+        </activity>
+
+        <!-- Activity Pilihan Menu -->
+        <activity
+            android:name=".pilihan"
+            android:exported="true">
+        </activity>
+
+        <!-- Activity Daftar Kasir Admin -->
+        <activity
+            android:name=".AdminDaftarKasirActivity"
+            android:exported="true">
+        </activity>
+
+        <!-- Activity Menu Makanan (untuk tombol Edit Menu) -->
+        <activity
+            android:name=".AdminMenuMakananActivity"
+            android:exported="true">
+        </activity>
+
+        <!-- Activity Menu Minuman (jika ada) -->
+        <activity
+            android:name=".AdminMenuMinumanActivity"
+            android:exported="true">
+        </activity>
+
+    </application>
+
+</manifest>

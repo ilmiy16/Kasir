@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "430880843100",
+    "project_id": "jajanan-khadijah-eb1ab",
+    "storage_bucket": "jajanan-khadijah-eb1ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430880843100:android:20e8f4117a6abadbcf8d99",
+        "android_client_info": {
+          "package_name": "com.example.kasir"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGYCeUWKDes7axzvDs1HqJpQSHWDtaxdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

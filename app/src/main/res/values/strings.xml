@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kasir App</string>
+    <string name="app_logo">Logo aplikasi Jajanan Khadijah</string>
+    <string name="login_as">Masuk Sebagai</string>
+    <string name="admin">Admin</string>
+    <string name="cashier">Kasir</string>
+    <string name="hello">Halo..</string>
+    <string name="powered_by">Powered by Kelompok 5\nPemrograman Perangkat Mobile</string>
+</resources>
