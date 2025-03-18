@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kasir.R;
 
-class itembeveragemakanan extends AppCompatActivity {
+class itembeverageminuman extends AppCompatActivity {
 
     String[] beverageNames = {
             "Green tea", "Thai tea", "Es Milo",
@@ -27,17 +27,21 @@ class itembeveragemakanan extends AppCompatActivity {
     };
 
     Integer[] beverageImages = {
-            R.drawable.sosis_bakar, R.drawable.burger, R.drawable.kentang_goreng,
-            R.drawable.pisang_goreng, R.drawable.tela_tela, R.drawable.nasi_gigit,
-            R.drawable.bakso_bakar, R.drawable.banana_roll
+            R.drawable.greentea, R.drawable.thaitea, R.drawable.esmilo,
+            R.drawable.lemontea, R.drawable.estaro, R.drawable.esstrawberry,
+            R.drawable.escoklat, R.drawable.esteh, R.drawable.esoreo,
+            R.drawable.popice, R.drawable.popice, R.drawable.esleci,
+            R.drawable.redvelvet, R.drawable.kopsuspanas, R.drawable.kopsus
     };
+    int[] beverageWidths = {75, 53, 70, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75};
+    int[] beverageHeights = {75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75};
 
     int[] beveragePrices = {10000, 15000, 10000, 10000, 15000, 10000, 10000, 15000};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_beverage_minuman); // Layout utama yang berisi RecyclerView
+        setContentView(R.layout.item_beverage_makanan); // Layout utama yang berisi RecyclerView
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // 2 kolom grid
@@ -64,7 +68,7 @@ class itembeveragemakanan extends AppCompatActivity {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_beverage_minuman, parent, false);
+                    .inflate(R.layout.item_beverage_makanan, parent, false);
             return new ViewHolder(view);
         }
 
@@ -75,7 +79,7 @@ class itembeveragemakanan extends AppCompatActivity {
             holder.priceTextView.setText("Rp " + beveragePrices[position]);
 
             holder.addToCartButton.setOnClickListener(v ->
-                    Toast.makeText(itembeveragemakanan.this, "Ditambahkan: " + beverageNames[position], Toast.LENGTH_SHORT).show()
+                    Toast.makeText(itembeverageminuman.this, "Ditambahkan: " + beverageNames[position], Toast.LENGTH_SHORT).show()
             );
         }
 

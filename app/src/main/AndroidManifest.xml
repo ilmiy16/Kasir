@@ -41,40 +41,25 @@
         </activity>
 
         <!-- Activity Login -->
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-        </activity>
+        <!-- Activity Login -->
+        <activity android:name=".LoginActivity" android:exported="true" />
+        <activity android:name=".RegisterActivity" android:exported="true" />
 
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true">
-        </activity>
+        <!-- Activity Pilihan -->
+        <activity android:name=".Pilihan" android:exported="true" />
 
-        <!-- Activity Pilihan Menu -->
-        <activity
-            android:name=".pilihan"
-            android:exported="true">
-        </activity>
+        <!-- Activity Kasir -->
+        <activity android:name=".LoginKasirActivity" android:exported="true" />
+        <activity android:name=".MainMenuKasir" android:exported="true" />
 
-        <!-- Activity Daftar Kasir Admin -->
-        <activity
-            android:name=".AdminDaftarKasirActivity"
-            android:exported="true">
-        </activity>
+        <!-- Activity Admin -->
+        <activity android:name=".AdminDaftarKasirActivity" android:exported="true" />
+        <activity android:name=".AdminMenuMakananActivity" android:exported="true" />
+        <activity android:name=".AdminMenuMinumanActivity" android:exported="true" />
+        <activity android:name=".AdminTransaksiActivity" android:exported="true" />
 
-        <!-- Activity Menu Makanan (untuk tombol Edit Menu) -->
-        <activity
-            android:name=".AdminMenuMakananActivity"
-            android:exported="true">
-        </activity>
-
-        <!-- Activity Menu Minuman (jika ada) -->
-        <activity
-            android:name=".AdminMenuMinumanActivity"
-            android:exported="true">
-        </activity>
-
+        <!-- Activity untuk item makanan/minuman -->
+        <activity android:name=".itembeveragemakanan" android:exported="true" />
     </application>
 
 </manifest>

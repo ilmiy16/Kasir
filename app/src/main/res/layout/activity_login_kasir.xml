@@ -184,15 +184,16 @@
             android:translationY="-470dp" />
 
         <TextView
-            android:id="@+id/tvForgotPassword"
+            android:id="@+id/tvRegistrasi"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Lupa Password?"
+            android:text="Belum Punya Akun? Daftar"
             android:textColor="#CE2C19"
             android:textSize="14sp"
+            android:clickable="true"
             android:translationY="-470dp" />
 
     </LinearLayout>

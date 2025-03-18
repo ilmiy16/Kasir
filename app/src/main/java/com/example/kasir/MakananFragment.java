@@ -8,15 +8,15 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.kasir.databinding.FragmentMakananBinding;
+import com.example.kasir.databinding.FragementMakananBinding;
 
 public class MakananFragment extends Fragment {
-    private FragmentMakananBinding binding;
+    private @NonNull FragementMakananBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inisialisasi ViewBinding
-        binding = FragmentMakananBinding.inflate(inflater, container, false);
+        binding = FragementMakananBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 

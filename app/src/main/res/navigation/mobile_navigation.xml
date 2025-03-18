@@ -16,5 +16,4 @@
         android:name="com.example.kasir.MakananFragment"
         android:label="@string/Minuman"
         tools:layout="@layout/fragement_makanan" />
-      
 </navigation>

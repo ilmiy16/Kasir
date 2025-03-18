@@ -8,15 +8,15 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.kasir.databinding.FragmentMinumanBinding;
+import com.example.kasir.databinding.FregmentMinumanBinding;
 
 public class MinumanFragment extends Fragment {
-    private FragmentMinumanBinding binding;
+    private @NonNull FregmentMinumanBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inisialisasi ViewBinding
-        binding = FragmentMinumanBinding.inflate(inflater, container, false);
+        binding = FregmentMinumanBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
