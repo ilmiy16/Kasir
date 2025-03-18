@@ -24,7 +24,7 @@ public class pilihan extends AppCompatActivity {
 
         // Tombol Kasir
         btnKasir.setOnClickListener(v -> {
-            Intent intent = new Intent(pilihan.this, RegisterActivity.class);
+            Intent intent = new Intent(pilihan.this, LoginKasirActivity.class);
             intent.putExtra("ROLE", "kasir"); // Kirim data role kasir
             startActivity(intent);
         });

@@ -4,6 +4,9 @@
     <string name="login_as">Masuk Sebagai</string>
     <string name="admin">Admin</string>
     <string name="cashier">Kasir</string>
-    <string name="hello">Halo..</string>
+    <string name="hello">Halo Admin..</string>
+    <string name="hellokasir">Halo Kasir..</string>
     <string name="powered_by">Powered by Kelompok 5\nPemrograman Perangkat Mobile</string>
+    <string name="Minuman" />
+    <string name="Makanan"/>
 </resources>

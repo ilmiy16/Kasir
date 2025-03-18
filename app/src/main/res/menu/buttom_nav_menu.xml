@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="ExtraText">
+
+    <item
+        android:id="@+id/Navigation_Makanan"
+        android:icon="@drawable/baseline_food_bank_24"
+        android:title="Makanan" />
+
+    <item
+        android:id="@+id/navigation_Minuman"
+        android:icon="@drawable/baseline_local_drink_24"
+        android:title="Minuman"/>
+
+</menu>
