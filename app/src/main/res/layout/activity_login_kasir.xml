@@ -51,13 +51,13 @@
         android:id="@+id/tvSubHello"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="130dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Silahkan Login untuk mengakses sistem kasir"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginTop="130dp"
-        android:layout_marginLeft="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
@@ -69,12 +69,12 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="250dp"
+        android:adjustViewBounds="true"
         android:background="@drawable/rounded_bg"
         android:orientation="vertical"
         android:padding="24dp"
-        android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:layout_marginTop="250dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -109,8 +109,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="120dp"
-            android:layout_height="150dp"
+            android:layout_width="158dp"
+            android:layout_height="129dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="Kasir Icon"
             android:gravity="center_horizontal"
@@ -118,8 +118,8 @@
             android:translationY="-500dp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="39dp"
+            android:layout_width="179dp"
+            android:layout_height="34dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
@@ -133,7 +133,7 @@
 
         <EditText
             android:id="@+id/etKasirId"
-            android:layout_width="353dp"
+            android:layout_width="291dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
@@ -152,7 +152,7 @@
 
         <EditText
             android:id="@+id/etPassword"
-            android:layout_width="353dp"
+            android:layout_width="296dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
@@ -171,10 +171,10 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="353dp"
+            android:layout_width="296dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="-10dp"
             android:backgroundTint="#CE2C19"
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center_horizontal"
@@ -188,12 +188,12 @@
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="2dp"
+            android:clickable="true"
             android:fontFamily="@font/montserrat_bold"
             android:text="Belum Punya Akun? Daftar"
             android:textColor="#CE2C19"
             android:textSize="14sp"
-            android:clickable="true"
             android:translationY="-470dp" />
 
     </LinearLayout>
