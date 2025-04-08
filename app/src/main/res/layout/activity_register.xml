@@ -1,6 +1,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CE2C19"
@@ -105,21 +106,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.298"
-            app:tint="#CE2C19" />
+            app:tint="#CE2C19"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <!-- Ikon User -->
         <ImageView
             android:id="@+id/imgUserIcon"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="86dp"
+            android:layout_height="71dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/login2"
-            android:translationY="30dp" />
+            android:translationY="20dp" />
 
         <!-- Input Email -->
         <EditText
             android:id="@+id/etRegisterEmail"
-            android:layout_width="353dp"
+            android:layout_width="272dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
             android:background="@drawable/username"
@@ -135,7 +137,7 @@
         <!-- Input Password -->
         <EditText
             android:id="@+id/etRegisterPassword"
-            android:layout_width="353dp"
+            android:layout_width="276dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
             android:background="@drawable/username"
@@ -154,7 +156,7 @@
             android:id="@+id/layoutButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="60dp"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -165,8 +167,8 @@
             <!-- Tombol Register -->
             <Button
                 android:id="@+id/btnRegister"
-                android:layout_width="353dp"
-                android:layout_height="50dp"
+                android:layout_width="294dp"
+                android:layout_height="match_parent"
                 android:backgroundTint="@color/redd"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Register"

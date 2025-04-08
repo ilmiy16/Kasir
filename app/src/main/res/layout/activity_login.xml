@@ -138,7 +138,7 @@
 
         <EditText
             android:id="@+id/etUsername"
-            android:layout_width="353dp"
+            android:layout_width="282dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
@@ -157,7 +157,7 @@
 
         <EditText
             android:id="@+id/etPassword"
-            android:layout_width="353dp"
+            android:layout_width="294dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
@@ -176,7 +176,7 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="353dp"
+            android:layout_width="288dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
