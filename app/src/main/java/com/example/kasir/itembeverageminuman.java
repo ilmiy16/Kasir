@@ -41,7 +41,7 @@ class itembeverageminuman extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_beverage_makanan); // Layout utama yang berisi RecyclerView
+        setContentView(R.layout.item_beverage_minuman); // Layout utama yang berisi RecyclerView
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // 2 kolom grid

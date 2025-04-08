@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.Kasir" parent="Base.Theme.Kasir" />
+
+    <style name="Theme.YourAppName" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- ... other items -->
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
 </resources>
+

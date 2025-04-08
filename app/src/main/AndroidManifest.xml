@@ -54,7 +54,7 @@
 
         <!-- Activity Admin -->
         <activity android:name=".AdminDaftarKasirActivity" android:exported="true" />
-        <activity android:name=".AdminMenuMakananActivity" android:exported="true" />
+        <activity android:name=".AdminMenuMakananaActivity" android:exported="true" />
         <activity android:name=".AdminMenuMinumanActivity" android:exported="true" />
         <activity android:name=".AdminTransaksiActivity" android:exported="true" />
 

@@ -57,7 +57,7 @@ class AdminMenuMakananaActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.item_beverage, null);
+            View view = getLayoutInflater().inflate(R.layout.item_beverage_makanan, null);
 
             TextView beverageName = view.findViewById(R.id.beverageName);
             ImageView beverageImage = view.findViewById(R.id.beverageImage);

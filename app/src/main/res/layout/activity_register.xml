@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Silahkan Login untuk masuk ke akun anda"
+        android:text="Silahkan registrasi untuk masuk ke akun anda"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"

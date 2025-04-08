@@ -151,7 +151,7 @@ public class LoginKasirActivity extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     if (task.isSuccessful()) {
                                         Toast.makeText(LoginKasirActivity.this, "Login berhasil", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(LoginKasirActivity.this, AdminMenuMakananActivity.class);
+                                        Intent intent = new Intent(LoginKasirActivity.this, AdminMenuMakananaActivity.class);
                                         intent.putExtra("KASIR_ID", kasirId);
                                         startActivity(intent);
                                         finish();
@@ -193,7 +193,7 @@ public class LoginKasirActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && "kasir".equals(dataSnapshot.getValue(String.class))) {
-                    Intent intent = new Intent(LoginKasirActivity.this, AdminMenuMakananActivity.class);
+                    Intent intent = new Intent(LoginKasirActivity.this, MainMenuKasir.class);
                     startActivity(intent);
                     finish();
                 } else {

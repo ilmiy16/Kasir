@@ -56,7 +56,7 @@ class itembeveragemakanan extends AppCompatActivity {
                 super(itemView);
                 beverageName = itemView.findViewById(R.id.beverageName);
                 beverageImage = itemView.findViewById(R.id.beverageImage);
-                priceTextView = itemView.findViewById(R.id.priceTextView);
+                priceTextView = itemView.findViewById(R.id.priceTextViewMakanan);
                 addToCartButton = itemView.findViewById(R.id.addToCartButton);
             }
         }

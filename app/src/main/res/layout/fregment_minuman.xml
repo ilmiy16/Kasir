@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.itembeverageminuman"
-    android:background="@android:color/white">
+    tools:context=".itembeverageminuman"
+    android:background="@android:color/white"
+    app:menu="@menu/buttom_nav_menu">
     <GridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
@@ -18,6 +19,7 @@
         android:verticalSpacing="6dp"
         android:stretchMode="columnWidth"
         android:gravity="center" />
+
 
 
 </LinearLayout>
