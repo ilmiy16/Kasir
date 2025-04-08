@@ -71,7 +71,7 @@ public class AdminDaftarKasirActivity extends AppCompatActivity {
             tabTransaksi.setBackgroundResource(R.drawable.tab_unselected);
 
             // **Langsung pindah ke AdminMenuMakananActivity**
-            Intent intent = new Intent(AdminDaftarKasirActivity.this, AdminMenuMakananaActivity.class);
+            Intent intent = new Intent(AdminDaftarKasirActivity.this, AdminMenuMakananActivity.class);
             startActivity(intent);
         });
 

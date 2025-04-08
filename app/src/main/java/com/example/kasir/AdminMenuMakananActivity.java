@@ -1,5 +1,6 @@
 package com.example.kasir;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-class AdminMenuMakananaActivity extends AppCompatActivity {
+public class AdminMenuMakananActivity extends AppCompatActivity {
 
     String[] beverageNames = {
             "Sosis Bakar", "Burger", "Kentang Goreng",
@@ -76,11 +77,14 @@ class AdminMenuMakananaActivity extends AppCompatActivity {
             beverageImage.setLayoutParams(layoutParams);
 
             editButton.setOnClickListener(v -> {
-                Toast.makeText(AdminMenuMakananaActivity.this, "Edit " + beverageNames[position], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AdminMenuMakananActivity.this, editmenu.class);
+                intent.putExtra("nama_makanan", beverageNames[position]);
+                startActivity(intent);
             });
 
+
             deleteButton.setOnClickListener(v -> {
-                Toast.makeText(AdminMenuMakananaActivity.this, "Delete " + beverageNames[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminMenuMakananActivity.this, "Delete " + beverageNames[position], Toast.LENGTH_SHORT).show();
             });
 
             return view;

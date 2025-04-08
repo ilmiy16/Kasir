@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
     private Button btnRegister;
+    private TextView tvSudahPunyaAkun;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
@@ -33,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Inisialisasi Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Inisialisasi Firebase Database dengan URL eksplisit (untuk mastiin konek)
+        // Inisialisasi Firebase Database dengan URL eksplisit
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://jajanan-khadijah-eb1ab-default-rtdb.asia-southeast1.firebasedatabase.app");
         mDatabase = database.getReference("Users");
 
@@ -41,8 +43,17 @@ public class RegisterActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etRegisterEmail);
         etPassword = findViewById(R.id.etRegisterPassword);
         btnRegister = findViewById(R.id.btnRegister);
+        tvSudahPunyaAkun = findViewById(R.id.tvSudahPunyaAkun); // <-- Tambahan penting
 
+        // Listener tombol register
         btnRegister.setOnClickListener(view -> registerUser());
+
+        // Listener teks "Sudah punya akun?"
+        tvSudahPunyaAkun.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterActivity.this, LoginKasirActivity.class);
+            startActivity(intent);
+            finish(); // Tutup activity registrasi
+        });
     }
 
     private void registerUser() {

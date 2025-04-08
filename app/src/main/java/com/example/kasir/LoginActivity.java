@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         // Inisialisasi elemen UI
-        etEmail = findViewById(R.id.etUsername); // Ganti ID ke Email
+        etEmail = findViewById(R.id.etEmail); // Ganti ID ke Email
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnBack = findViewById(R.id.btnBack);

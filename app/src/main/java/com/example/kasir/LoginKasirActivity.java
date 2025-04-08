@@ -45,7 +45,7 @@ public class LoginKasirActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("kasir");
 
         // Initialize UI components
-        etKasirId = findViewById(R.id.etKasirId);
+        etKasirId = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnBack = findViewById(R.id.btnBack);
@@ -74,28 +74,11 @@ public class LoginKasirActivity extends AppCompatActivity {
         });
 
 
-        // Register button click (Belum punya akun? Daftar)
-//        tvRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(LoginKasirActivity.this, RegisterActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
         tvRegister.setOnClickListener(v -> {
             Intent intent = new Intent(LoginKasirActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
 
-
-        // Forgot Password button click
-//        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showForgotPasswordDialog();
-//            }
-//        });
     }
 
     private void loginKasir(String role) {
@@ -151,7 +134,7 @@ public class LoginKasirActivity extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     if (task.isSuccessful()) {
                                         Toast.makeText(LoginKasirActivity.this, "Login berhasil", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(LoginKasirActivity.this, AdminMenuMakananaActivity.class);
+                                        Intent intent = new Intent(LoginKasirActivity.this, AdminMenuMakananActivity.class);
                                         intent.putExtra("KASIR_ID", kasirId);
                                         startActivity(intent);
                                         finish();

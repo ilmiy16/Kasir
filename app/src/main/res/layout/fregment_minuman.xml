@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutFragmentMinuman"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".itembeverageminuman"
     android:background="@android:color/white"
-    app:menu="@menu/buttom_nav_menu">
-    <GridView
-        android:id="@+id/gridView"
+    android:orientation="vertical"
+    tools:context=".MakananFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMinuman"
         android:layout_width="match_parent"
-        android:layout_marginTop="100dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:numColumns="3"
-        android:padding="6dp"
-        android:verticalSpacing="6dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center" />
-
-
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_beverage" />
 
 </LinearLayout>

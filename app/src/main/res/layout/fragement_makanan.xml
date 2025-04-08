@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".itembeveragemakanan"
-    app:menu="@menu/buttom_nav_menu"
+    tools:context=".MakananFragment"
     android:background="@android:color/white">
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_marginTop="100dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:numColumns="3"
-        android:padding="6dp"
-        android:verticalSpacing="6dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMakanan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="6dp"
+        tools:listitem="@layout/item_beverage" />
 
 </LinearLayout>

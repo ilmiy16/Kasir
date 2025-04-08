@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/Navigation_Makanan">
+
+    <fragment
+        android:id="@+id/Navigation_Makanan"
+        android:name="com.example.kasir.MakananFragment"
+        android:label="@string/Makanan"
+        tools:layout="@layout/fragement_makanan" />
+
+    <fragment
+        android:id="@+id/navigation_Minuman"
+        android:name="com.example.kasir.MakananFragment"
+        android:label="@string/Minuman"
+        tools:layout="@layout/fregment_minuman" />
+</navigation>
