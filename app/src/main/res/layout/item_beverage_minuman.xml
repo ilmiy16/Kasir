@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,35 +10,39 @@
     app:cardBackgroundColor="@android:color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#E0E0E0"
         android:padding="8dp">
-        <!-- Nama Menu -->
+
+        <!-- Nama Minuman -->
         <TextView
             android:id="@+id/beverageName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
+            android:layout_marginTop="6dp"
             android:text="Nama Minuman"
-            android:textSize="14sp"
+            android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TextSizeCheck" />
 
-        <!-- Gambar Menu -->
+        <!-- Gambar Minuman -->
         <ImageView
             android:id="@+id/beverageImage"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_launcher_background"
+            android:translationX="-15dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/beverageName" />
-        <!-- Layout untuk Harga & Tombol -->
+
+        <!-- Layout untuk Edit & Delete -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,27 +52,35 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/beverageImage">
 
-            <!-- Harga -->
-            <TextView
-                android:id="@+id/priceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp 0"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-            <!-- Tombol Tambah -->
+            <!-- Tombol Edit (Geser ke kiri dengan translationX negatif) -->
+            <Button
+                android:id="@+id/editButton"
+                android:layout_width="62dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/green"
+                android:text="Edit"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:translationX="-5dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
         </LinearLayout>
 
+        <!-- Tombol Hapus -->
         <ImageButton
-            android:id="@+id/addToCartButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#CE2C19"
-            android:contentDescription="Tambah ke Keranjang"
-            android:src="@drawable/baseline_add_24"
-            tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="109dp" />
+            android:id="@+id/deleteButton"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="5dp"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/delete"
+            android:tint="@color/redd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beverageImage"
+            tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,UseAppTint" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

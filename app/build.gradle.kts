@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
 }
 apply(plugin="com.google.gms.google-services")
+
 android {
     namespace = "com.example.kasir"
     compileSdk = 35
@@ -50,6 +51,8 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
+    implementation ("com.google.firebase:firebase-database:20.3.0")
+
 
 
 }
