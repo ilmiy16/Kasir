@@ -22,7 +22,7 @@ public class MinumanFragment extends Fragment {
 
     private FregmentMinumanBinding binding;
 
-    String[] beverageNames = {
+    String[] minumanNames = {
             "Green tea", "Thai tea", "Es Milo",
             "Lemon tea", "Es Taro", "Es Strawberry",
             "Es Coklat", "Es Teh", "Es Oreo",
@@ -30,7 +30,7 @@ public class MinumanFragment extends Fragment {
             "Es Red Velvet", "Kopi Susu Panas", "Es Kopi Susu"
     };
 
-    int[] beverageImages = {
+    int[] minumanImages = {
             R.drawable.greentea, R.drawable.thaitea, R.drawable.esmilo,
             R.drawable.lemontea, R.drawable.estaro, R.drawable.esstrawberry,
             R.drawable.escoklat, R.drawable.esteh, R.drawable.esoreo,
@@ -38,11 +38,14 @@ public class MinumanFragment extends Fragment {
             R.drawable.redvelvet, R.drawable.kopsuspanas, R.drawable.kopsus
     };
 
-    int[] beveragePrices = {
+    int[] minumanPrices = {
             10000, 15000, 10000, 10000, 15000, 10000,
             10000, 15000, 10000, 10000, 10000, 10000,
             15000, 12000, 15000
     };
+
+    // Array untuk menyimpan jumlah pesanan
+    int[] jumlahPesanan = new int[minumanNames.length];
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,11 +57,33 @@ public class MinumanFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView recyclerView = binding.recyclerViewMinuman;
+        if (getActivity() instanceof MainMenuKasir) {
+            jumlahPesanan = ((MainMenuKasir) getActivity()).getJumlahPesananMinuman();
+        }
 
+        RecyclerView recyclerView = binding.recyclerViewMinuman;
         int columnCount = calculateNoOfColumns(160); // misalnya 160dp per item
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), columnCount));
         recyclerView.setAdapter(new MinumanAdapter());
+
+        // Update cart saat pertama kali tampil
+        hitungTotalPesanan();
+    }
+
+    // Metode untuk menghitung total pesanan dan update floating cart
+    private void hitungTotalPesanan() {
+        int totalItems = 0;
+        int totalPrice = 0;
+
+        for (int i = 0; i < jumlahPesanan.length; i++) {
+            totalItems += jumlahPesanan[i];
+            totalPrice += jumlahPesanan[i] * minumanPrices[i];
+        }
+
+        // Update floating cart di MainMenuKasir
+        if (getActivity() instanceof MainMenuKasir) {
+            ((MainMenuKasir) getActivity()).updateCart(totalItems, totalPrice);
+        }
     }
 
     private int calculateNoOfColumns(float itemWidthDp) {
@@ -76,16 +101,18 @@ public class MinumanFragment extends Fragment {
     private class MinumanAdapter extends RecyclerView.Adapter<MinumanAdapter.ViewHolder> {
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            TextView beverageName, priceTextView;
-            ImageView beverageImage;
-            ImageButton addToCartButton;
+            TextView namaMinuman, hargaMinuman, jumlahPesanan;
+            ImageView gambarMinuman;
+            ImageButton tambahButton, kurangiButton;
 
             ViewHolder(View itemView) {
                 super(itemView);
-                beverageName = itemView.findViewById(R.id.beverageNameMenu);
-                beverageImage = itemView.findViewById(R.id.beverageImageMenu);
-                priceTextView = itemView.findViewById(R.id.priceTextViewMenu);
-                addToCartButton = itemView.findViewById(R.id.addToCartButton);
+                namaMinuman = itemView.findViewById(R.id.beverageNameMenu);
+                gambarMinuman = itemView.findViewById(R.id.beverageImageMenu);
+                hargaMinuman = itemView.findViewById(R.id.priceTextViewMenu);
+                tambahButton = itemView.findViewById(R.id.addToCartButton);
+                kurangiButton = itemView.findViewById(R.id.KurangiPesanan);
+                jumlahPesanan = itemView.findViewById(R.id.JumlahPesanan);
             }
         }
 
@@ -99,18 +126,63 @@ public class MinumanFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.beverageName.setText(beverageNames[position]);
-            holder.beverageImage.setImageResource(beverageImages[position]);
-            holder.priceTextView.setText("Rp " + beveragePrices[position]);
+            holder.namaMinuman.setText(minumanNames[position]);
+            holder.gambarMinuman.setImageResource(minumanImages[position]);
 
-            holder.addToCartButton.setOnClickListener(v ->
-                    Toast.makeText(getContext(), "Ditambahkan: " + beverageNames[position], Toast.LENGTH_SHORT).show()
-            );
+            // Periksa jumlah pesanan
+            if (jumlahPesanan[position] > 0) {
+                // Jika jumlah pesanan minimal 1, tampilkan jumlahPesanan dan sembunyikan harga
+                holder.jumlahPesanan.setVisibility(View.VISIBLE);
+                holder.jumlahPesanan.setText(String.valueOf(jumlahPesanan[position]));
+                holder.hargaMinuman.setVisibility(View.GONE);
+            } else {
+                // Jika jumlah pesanan 0, tampilkan harga dan sembunyikan jumlahPesanan
+                holder.hargaMinuman.setVisibility(View.VISIBLE);
+                holder.hargaMinuman.setText("Rp " + minumanPrices[position]);
+                holder.jumlahPesanan.setVisibility(View.GONE);
+            }
+
+            // Tombol tambah
+            holder.tambahButton.setOnClickListener(v -> {
+                jumlahPesanan[position]++;
+
+                // Tampilkan jumlahPesanan dan sembunyikan harga
+                holder.jumlahPesanan.setVisibility(View.VISIBLE);
+                holder.jumlahPesanan.setText(String.valueOf(jumlahPesanan[position]));
+                holder.hargaMinuman.setVisibility(View.GONE);
+
+                Toast.makeText(getContext(), minumanNames[position] + " ditambahkan ke pesanan", Toast.LENGTH_SHORT).show();
+
+                // Update floating cart
+                hitungTotalPesanan();
+            });
+
+            // Tombol kurangi
+            holder.kurangiButton.setOnClickListener(v -> {
+                if (jumlahPesanan[position] > 0) {
+                    jumlahPesanan[position]--;
+
+                    if (jumlahPesanan[position] > 0) {
+                        // Jika jumlah pesanan masih ada, update teks jumlahPesanan
+                        holder.jumlahPesanan.setText(String.valueOf(jumlahPesanan[position]));
+                    } else {
+                        // Jika jumlah pesanan sudah 0, sembunyikan jumlahPesanan dan tampilkan harga
+                        holder.jumlahPesanan.setVisibility(View.GONE);
+                        holder.hargaMinuman.setVisibility(View.VISIBLE);
+                        holder.hargaMinuman.setText("Rp " + minumanPrices[position]);
+                    }
+
+                    Toast.makeText(getContext(), minumanNames[position] + " dikurangi dari pesanan", Toast.LENGTH_SHORT).show();
+
+                    // Update floating cart
+                    hitungTotalPesanan();
+                }
+            });
         }
 
         @Override
         public int getItemCount() {
-            return beverageNames.length;
+            return minumanNames.length;
         }
     }
 }

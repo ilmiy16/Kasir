@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class editmenu extends Activity {
     private ImageView imgMenu, imgProfile;
     private EditText edtNamaMenu, edtHargaMenu;
     private Button btnUbahFoto, btnSimpan;
+    private ImageButton btnBack; // Tambahan tombol back
     private Uri imageUri;
 
     @Override
@@ -33,14 +35,15 @@ public class editmenu extends Activity {
         edtHargaMenu = findViewById(R.id.edtHargaMenu);
         btnUbahFoto = findViewById(R.id.btnUbahFoto);
         btnSimpan = findViewById(R.id.btnSimpan);
+        btnBack = findViewById(R.id.btnBack); // Inisialisasi tombol back
 
-        // Mengubah warna gambar menjadi putih
+        // Ubah warna icon profile jadi putih
         imgProfile.setColorFilter(ContextCompat.getColor(this, android.R.color.white), android.graphics.PorterDuff.Mode.SRC_IN);
 
-        // Membuat tombol memiliki sudut lonjong
+        // Tombol ubah foto lonjong
         btnUbahFoto.setBackgroundResource(R.drawable.rounded_button);
 
-        // Aksi ubah foto
+        // Aksi tombol ubah foto
         btnUbahFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,11 +51,19 @@ public class editmenu extends Activity {
             }
         });
 
-        // Aksi simpan perubahan
+        // Aksi tombol simpan
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 simpanPerubahan();
+            }
+        });
+
+        // Aksi tombol kembali
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Kembali ke activity sebelumnya
             }
         });
     }

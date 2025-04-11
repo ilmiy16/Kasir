@@ -14,7 +14,7 @@ public class AdminDaftarKasirActivity extends AppCompatActivity {
 
     private Button btnAktif, btnHapus, btnAktif1, btnHapus1;
     private Button tabKasir, tabEditMenu, tabTransaksi;
-    private ImageView btnBack;
+    private ImageView btnBack, btnIcon;
     private TextView txtUser;
 
     @Override
@@ -32,6 +32,7 @@ public class AdminDaftarKasirActivity extends AppCompatActivity {
         tabTransaksi = findViewById(R.id.tabTransaksi);
         btnBack = findViewById(R.id.btnBack);
         txtUser = findViewById(R.id.txtUser);
+        btnIcon = findViewById(R.id.btnIcon);
 
         // Tombol "Aktif" - Kasir 1
         btnAktif.setOnClickListener(v -> {
@@ -87,5 +88,6 @@ public class AdminDaftarKasirActivity extends AppCompatActivity {
 
         // Tombol Kembali ke Halaman Sebelumnya
         btnBack.setOnClickListener(v -> finish());
+
     }
 }

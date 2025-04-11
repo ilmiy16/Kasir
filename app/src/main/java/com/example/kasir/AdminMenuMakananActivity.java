@@ -16,6 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AdminMenuMakananActivity extends AppCompatActivity {
 
+    private Button tabKasir, tabEditMenu, tabTransaksi, tabMinuman;
+    private ImageView btnBack;
+
     String[] beverageNames = {
             "Sosis Bakar", "Burger", "Kentang Goreng",
             "Pisang Goreng", "Tela-Tela", "Nasi Gigit",
@@ -36,6 +39,62 @@ public class AdminMenuMakananActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_makanan_admin);
 
+        // Inisialisasi tombol navigasi
+        tabKasir = findViewById(R.id.tabKasir);
+        tabEditMenu = findViewById(R.id.tabEditMenu);
+        tabTransaksi = findViewById(R.id.tabTransaksi);
+        btnBack = findViewById(R.id.backButton);
+        tabMinuman = findViewById(R.id.tabMinuman);
+
+
+        // Tombol back
+        ImageButton backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> finish());
+
+        // Navigasi ke halaman Kasir
+        tabKasir.setOnClickListener(v -> {
+            tabKasir.setBackgroundResource(R.drawable.tab_selected);
+            tabEditMenu.setBackgroundResource(R.drawable.tab_unselected);
+            tabTransaksi.setBackgroundResource(R.drawable.tab_unselected);
+
+            Intent intent = new Intent(AdminMenuMakananActivity.this, AdminDaftarKasirActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        // Navigasi ke halaman Edit Menu (saat ini halaman aktif)
+        tabEditMenu.setOnClickListener(v -> {
+            tabKasir.setBackgroundResource(R.drawable.tab_unselected);
+            tabEditMenu.setBackgroundResource(R.drawable.tab_selected);
+            tabTransaksi.setBackgroundResource(R.drawable.tab_unselected);
+
+            // Tidak perlu berpindah activity, karena ini halaman saat ini
+        });
+
+        tabMinuman.setOnClickListener(v -> {
+            tabKasir.setBackgroundResource(R.drawable.tab_unselected);
+            tabEditMenu.setBackgroundResource(R.drawable.tab_unselected);
+            tabTransaksi.setBackgroundResource(R.drawable.tab_unselected);
+            tabMinuman.setBackgroundResource(R.drawable.tab_selected);
+
+            Intent intent = new Intent(AdminMenuMakananActivity.this, AdminMenuMinumanActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+
+        // Navigasi ke halaman Transaksi
+        tabTransaksi.setOnClickListener(v -> {
+            tabKasir.setBackgroundResource(R.drawable.tab_unselected);
+            tabEditMenu.setBackgroundResource(R.drawable.tab_unselected);
+            tabTransaksi.setBackgroundResource(R.drawable.tab_selected);
+
+            Intent intent = new Intent(AdminMenuMakananActivity.this, AdminTransaksiActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        // GridView isi menu
         GridView gridView = findViewById(R.id.gridView);
         gridView.setAdapter(new BeverageAdapter());
     }
@@ -81,7 +140,6 @@ public class AdminMenuMakananActivity extends AppCompatActivity {
                 intent.putExtra("nama_makanan", beverageNames[position]);
                 startActivity(intent);
             });
-
 
             deleteButton.setOnClickListener(v -> {
                 Toast.makeText(AdminMenuMakananActivity.this, "Delete " + beverageNames[position], Toast.LENGTH_SHORT).show();

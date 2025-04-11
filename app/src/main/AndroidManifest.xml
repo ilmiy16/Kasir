@@ -61,6 +61,7 @@
 
         <!-- Activity untuk item makanan/minuman -->
         <activity android:name=".itembeveragemakanan" android:exported="true" />
+        <activity android:name=".itembeverageminuman" android:exported="true" />
     </application>
 
 </manifest>

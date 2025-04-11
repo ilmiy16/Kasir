@@ -13,14 +13,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="216dp"
         android:background="#E0E0E0"
         android:padding="8dp">
+
         <!-- Nama Menu -->
-
-        <!-- Gambar Menu -->
-
-        <!-- Layout untuk Harga & Tombol -->
 
         <TextView
             android:id="@+id/beverageNameMenu"
@@ -36,10 +33,12 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TextSizeCheck" />
 
+        <!-- Gambar Menu -->
+
         <ImageView
             android:id="@+id/beverageImageMenu"
             android:layout_width="145dp"
-            android:layout_height="136dp"
+            android:layout_height="145dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
@@ -60,6 +59,7 @@
             app:layout_constraintTop_toBottomOf="@id/beverageImage"
             tools:ignore="NotSibling"
             tools:layout_editor_absoluteX="8dp">
+
             <!-- Harga -->
             <TextView
                 android:id="@+id/priceTextViewMenu"
@@ -70,19 +70,44 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <!-- Tombol Tambah -->
+            <TextView
+                android:id="@+id/JumlahPesanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
+
+        <!-- Button Tambah Pesanan -->
 
         <ImageButton
             android:id="@+id/addToCartButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="156dp"
+            android:layout_marginTop="160dp"
             android:backgroundTint="#CE2C19"
             android:contentDescription="Tambah ke Keranjang"
             android:src="@drawable/baseline_add_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.976"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
+
+        <!-- Button Kurangi Pesanan -->
+        <ImageButton
+            android:id="@+id/KurangiPesanan"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="160dp"
+            android:backgroundTint="#CE2C19"
+            android:contentDescription="Kurangi ke Keranjang"
+            android:src="@drawable/baseline_add_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
