@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class AdminMenuMakananActivity extends AppCompatActivity {
 
     private Button tabKasir, tabEditMenu, tabTransaksi, tabMinuman;
@@ -46,7 +48,6 @@ public class AdminMenuMakananActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.backButton);
         tabMinuman = findViewById(R.id.tabMinuman);
 
-
         // Tombol back
         ImageButton backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> finish());
@@ -62,15 +63,14 @@ public class AdminMenuMakananActivity extends AppCompatActivity {
             finish();
         });
 
-        // Navigasi ke halaman Edit Menu (saat ini halaman aktif)
+        // Navigasi ke halaman Edit Menu (halaman ini sendiri)
         tabEditMenu.setOnClickListener(v -> {
             tabKasir.setBackgroundResource(R.drawable.tab_unselected);
             tabEditMenu.setBackgroundResource(R.drawable.tab_selected);
             tabTransaksi.setBackgroundResource(R.drawable.tab_unselected);
-
-            // Tidak perlu berpindah activity, karena ini halaman saat ini
         });
 
+        // Navigasi ke halaman Minuman
         tabMinuman.setOnClickListener(v -> {
             tabKasir.setBackgroundResource(R.drawable.tab_unselected);
             tabEditMenu.setBackgroundResource(R.drawable.tab_unselected);
@@ -81,7 +81,6 @@ public class AdminMenuMakananActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
 
         // Navigasi ke halaman Transaksi
         tabTransaksi.setOnClickListener(v -> {
@@ -97,6 +96,13 @@ public class AdminMenuMakananActivity extends AppCompatActivity {
         // GridView isi menu
         GridView gridView = findViewById(R.id.gridView);
         gridView.setAdapter(new BeverageAdapter());
+
+        // FAB Tambah Menu
+        FloatingActionButton fabTambahMenu = findViewById(R.id.fabTambahMenu);
+        fabTambahMenu.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminMenuMakananActivity.this, tambahmenu.class);
+            startActivity(intent);
+        });
     }
 
     private class BeverageAdapter extends BaseAdapter {

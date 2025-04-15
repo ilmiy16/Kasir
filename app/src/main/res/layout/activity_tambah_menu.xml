@@ -1,0 +1,115 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Tabs -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnMakanan"
+                android:text="Makanan"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:backgroundTint="@color/redd"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnMinuman"
+                android:text="Minuman"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:backgroundTint="@color/abumuda"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Gambar Menu -->
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:src="@drawable/foto"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bgabu"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnUploadImage"
+            android:text="Pilih Gambar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/redd"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Menu Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Nama Menu"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <!-- Nama Menu -->
+        <EditText
+            android:id="@+id/etNamaMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Nama Menu"
+            android:minHeight="48dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Harga"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <!-- Harga -->
+        <EditText
+            android:id="@+id/etHarga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Harga Item"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textSize="16dp"/>
+
+        <!-- Kategori -->
+        <TextView
+            android:id="@+id/tvKategori"
+            android:text="Kategori: Makanan"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"/>
+
+        <!-- Tombol Simpan -->
+        <Button
+            android:id="@+id/btnSimpanMenu"
+            android:text="Simpan Menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/redd"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+</ScrollView>

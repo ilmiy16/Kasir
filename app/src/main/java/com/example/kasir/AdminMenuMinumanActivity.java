@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class AdminMenuMinumanActivity extends AppCompatActivity {
 
     private Button tabKasir, tabEditMenu, tabTransaksi, tabMakanan;
@@ -47,7 +49,6 @@ public class AdminMenuMinumanActivity extends AppCompatActivity {
         tabTransaksi = findViewById(R.id.tabTransaksi);
         btnBack = findViewById(R.id.backButton);
         tabMakanan = findViewById(R.id.tabMakanan);
-
 
         // Tombol back
         ImageButton backButton = findViewById(R.id.backButton);
@@ -84,7 +85,6 @@ public class AdminMenuMinumanActivity extends AppCompatActivity {
             finish();
         });
 
-
         // Navigasi ke halaman Transaksi
         tabTransaksi.setOnClickListener(v -> {
             tabKasir.setBackgroundResource(R.drawable.tab_unselected);
@@ -99,6 +99,15 @@ public class AdminMenuMinumanActivity extends AppCompatActivity {
         // GridView isi menu
         GridView gridView = findViewById(R.id.gridView);
         gridView.setAdapter(new BeverageAdapter());
+
+        // FAB Tambah Menu
+        FloatingActionButton fabTambahMenu = findViewById(R.id.fabTambahMenu);
+        fabTambahMenu.setOnClickListener(v -> {
+            // Mengirimkan kategori "Minuman" ke activity tambahmenu
+            Intent intent = new Intent(AdminMenuMinumanActivity.this, tambahmenu.class);
+            intent.putExtra("kategori", "Minuman"); // Menambahkan kategori Minuman
+            startActivity(intent);
+        });
     }
 
     private class BeverageAdapter extends BaseAdapter {

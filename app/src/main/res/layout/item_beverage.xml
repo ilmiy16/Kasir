@@ -29,6 +29,7 @@
             android:text="Nama Makanan"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TextSizeCheck" />
@@ -85,9 +86,9 @@
 
         <ImageButton
             android:id="@+id/addToCartButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="160dp"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="175dp"
             android:backgroundTint="#CE2C19"
             android:contentDescription="Tambah ke Keranjang"
             android:src="@drawable/baseline_add_24"
@@ -100,12 +101,12 @@
         <!-- Button Kurangi Pesanan -->
         <ImageButton
             android:id="@+id/KurangiPesanan"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="160dp"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="175dp"
             android:backgroundTint="#CE2C19"
             android:contentDescription="Kurangi ke Keranjang"
-            android:src="@drawable/baseline_add_24"
+            android:src="@drawable/min"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
