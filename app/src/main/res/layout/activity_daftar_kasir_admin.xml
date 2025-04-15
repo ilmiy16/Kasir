@@ -203,13 +203,15 @@
                 android:id="@+id/btnHapus1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_delete"
                 android:layout_marginTop="70dp"
+                android:background="@drawable/button_delete"
+                android:minHeight="48dp"
                 android:text="Hapus"
                 android:textColor="@color/white"
-                android:textStyle="bold"
                 android:textSize="20sp"
-                app:backgroundTint="@null"/>
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

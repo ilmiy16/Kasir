@@ -1,5 +1,6 @@
 package com.example.kasir;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,8 +9,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainMenuKasir extends AppCompatActivity {
+    private DatabaseReference databaseRef;
 
     private LinearLayout cartContainer;
     private TextView totalItemsText;
@@ -35,23 +39,31 @@ public class MainMenuKasir extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_kasir);
 
+        // Inisialisasi Firebase database reference
+        databaseRef = FirebaseDatabase.getInstance().getReference("pesanan"); // atau path lain
+
+        // Inisialisasi UI komponen
         cartContainer = findViewById(R.id.cartContainer);
         totalItemsText = findViewById(R.id.totalItemsText);
         totalPriceText = findViewById(R.id.totalPriceText);
         cartIcon = findViewById(R.id.cartIcon);
 
+        // Menyembunyikan container cart di awal
         cartContainer.setVisibility(View.GONE);
 
+        // Bottom Navigation setup
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
 
+            // Memilih fragment berdasarkan item yang dipilih di Bottom Navigation
             if (item.getItemId() == R.id.Navigation_Makanan) {
                 selectedFragment = new MakananFragment();
             } else if (item.getItemId() == R.id.navigation_Minuman) {
                 selectedFragment = new MinumanFragment();
             }
 
+            // Mengganti fragment yang tampil di layar
             if (selectedFragment != null) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.nav_host_fragment_activity_main_manu_kasir, selectedFragment)
@@ -60,6 +72,7 @@ public class MainMenuKasir extends AppCompatActivity {
             return true;
         });
 
+        // Memastikan MakananFragment tampil pertama kali saat aplikasi pertama kali dijalankan
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment_activity_main_manu_kasir, new MakananFragment())
@@ -67,28 +80,47 @@ public class MainMenuKasir extends AppCompatActivity {
         }
 
         cartContainer.setOnClickListener(v -> {
-            // intent ke halaman checkout nanti
+            // Intent untuk berpindah ke activity Pembayarankasir
+            Intent intent = new Intent(MainMenuKasir.this, PembayaranKasir.class);
+
+            // Mengirimkan data total item dan total harga
+            intent.putExtra("TOTAL_ITEMS", totalItemsText.getText().toString());
+            intent.putExtra("TOTAL_PRICE", totalPriceText.getText().toString());
+
+            // Mengirimkan array jumlah pesanan makanan dan minuman
+            intent.putExtra("JUMLAH_PESANAN_MAKANAN", jumlahPesananMakanan);
+            intent.putExtra("JUMLAH_PESANAN_MINUMAN", jumlahPesananMinuman);
+
+            // Mengirimkan array harga makanan dan minuman
+            intent.putExtra("HARGA_MAKANAN", hargaMakanan);
+            intent.putExtra("HARGA_MINUMAN", hargaMinuman);
+
+            startActivity(intent); // Mulai activity Pembayarankasir
         });
     }
 
-    // ✅ Method ini dipanggil oleh fragment ketika ada perubahan pesanan
+    // Method ini dipanggil oleh fragment ketika ada perubahan pesanan
     public void recalculateCart() {
         int totalItems = 0;
         int totalHarga = 0;
 
+        // Menghitung total item dan total harga untuk makanan
         for (int i = 0; i < jumlahPesananMakanan.length; i++) {
             totalItems += jumlahPesananMakanan[i];
             totalHarga += jumlahPesananMakanan[i] * hargaMakanan[i];
         }
 
+        // Menghitung total item dan total harga untuk minuman
         for (int i = 0; i < jumlahPesananMinuman.length; i++) {
             totalItems += jumlahPesananMinuman[i];
             totalHarga += jumlahPesananMinuman[i] * hargaMinuman[i];
         }
 
+        // Memperbarui cart setelah perhitungan ulang
         updateCart(totalItems, totalHarga);
     }
 
+    // Method untuk memperbarui tampilan cart
     public void updateCart(int items, int price) {
         if (items > 0) {
             cartContainer.setVisibility(View.VISIBLE);

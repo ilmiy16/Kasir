@@ -51,6 +51,9 @@
         <!-- Activity Kasir -->
         <activity android:name=".LoginKasirActivity" android:exported="true" />
         <activity android:name=".MainMenuKasir" android:exported="true" />
+        <activity android:name=".PembayaranKasir" android:exported="true" />
+        <activity android:name=".ItemPesanan" android:exported="true"
+            tools:ignore="Instantiatable" />
 
         <!-- Activity Admin -->
         <activity android:name=".AdminDaftarKasirActivity" android:exported="true" />

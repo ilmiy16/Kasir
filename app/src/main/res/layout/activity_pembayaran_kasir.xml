@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".PembayaranKasir">
+
+    <!-- Daftar pesanan -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/TempatTotalPesanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            tools:listitem="@layout/item_layout_pembayaran" />
+    </ScrollView>
+
+    <!-- Ringkasan Total dan Diskon -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/subtotalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtotal"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/discountText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discount"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/totalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TOTAL"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Metode Pembayaran: Tunai dan QRIS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnTunai"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tunai"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#4CAF50"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btnQRIS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="QRIS"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#2196F3"
+            android:textSize="16sp"
+            android:padding="12dp" />
+    </LinearLayout>
+
+    <!-- Tombol Checkout -->
+    <Button
+        android:id="@+id/btnCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selesaikan Pembayaran"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#F44336"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
